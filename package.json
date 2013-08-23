@@ -1,0 +1,28 @@
+{
+	"name": "google-maps",
+	"description": "Wrapper for asynchronously used Google Maps API",
+	"version": "1.0.0",
+	"author": {
+		"name": "David Kudera",
+		"email": "sakren@gmail.com"
+	},
+	"keywords": [
+		"google",
+		"maps",
+		"asynchronous",
+		"browser",
+		"wrapper"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:sakren/node-google-maps.git"
+	},
+	"license": "MIT",
+	"engines": {
+		"node": "*"
+	},
+	"main": "./lib/Google.js",
+	"dependencies": {
+		"q": "0.9.6"
+	}
+}
