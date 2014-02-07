@@ -24,7 +24,18 @@ This module does not change original google maps api in any way. It just provide
 Loader.KEY = 'qwertyuiopasdfghjklzxcvbnm';
 ```
 
+## Business API client
+
+```
+Loader.CLIENT = 'yourclientkey';
+Loader.VERSION = '3.14';
+```
+
+
 ## Changelog list
+
+* 1.0.1
+    + Added Maps API for Business support
 
 * 1.0.0
 	+ Initial version
