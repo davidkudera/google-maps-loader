@@ -13,6 +13,10 @@
     "browser",
     "wrapper"
   ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "command -v grunt >/dev/null 2>&1 && grunt || { echo >&2 'Grunt is not installed'; }"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:sakren/node-google-maps.git"
@@ -24,5 +28,10 @@
   "main": "./lib/Google.js",
   "dependencies": {
     "q": "0.9.6"
+  },
+  "devDependencies": {
+    "grunt-contrib-coffee": "~0.10.0",
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3"
   }
 }
