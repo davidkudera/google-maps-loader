@@ -23,11 +23,12 @@
 	},
 	"main": "./lib/Google.js",
 	"devDependencies": {
-		"uglify-js": "~2.4.12"
+		"uglify-js": "~2.4.12",
+		"coffee-script": "~1.7.1"
 	},
 	"scripts": {
 		"build": "npm run compile && npm run minify",
-		"compile": "coffee -co ./lib/ ./src/",
+		"compile": "node ./node_modules/coffee-script/bin/coffee -co ./lib/ ./src/",
 		"minify": "node ./node_modules/uglify-js/bin/uglifyjs ./lib/Google.js -o ./lib/Google.min.js"
 	}
 }
