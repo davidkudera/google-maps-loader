@@ -83,8 +83,13 @@ $ npm test
 
 ## Changelog list
 
-* 1.0.1
+* 2.0.0
     + Added Maps API for Business support
+    + Added standalone version for non common js environments
+    + Removed dependency on [q](https://github.com/kriskowal/q) package
+    + Using callback instead of promise
+    + Added tests + travis
+    + Added status badges
 
 * 1.0.0
 	+ Initial version
