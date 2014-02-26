@@ -1,3 +1,9 @@
+[![NPM version](https://badge.fury.io/js/google-maps.png)](http://badge.fury.io/js/google-maps)
+[![Dependency Status](https://gemnasium.com/sakren/node-google-maps.png)](https://gemnasium.com/sakren/node-google-maps)
+[![Build Status](https://travis-ci.org/sakren/node-google-maps.png?branch=master)](https://travis-ci.org/sakren/node-google-maps)
+
+[![Donate](http://b.repl.ca/v1/donate-PayPal-brightgreen.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ARUCDRF95XRBA)
+
 # Google Maps
 
 Wrapper for asynchronously used Google Maps API in browser.
