@@ -1,6 +1,9 @@
 if typeof window == 'undefined'
 	throw new Error 'Google-maps package can be used only in browser.'
 
+promiseError = ->
+	throw new Error 'Using promises is not supported anymore. Please take a look in new documentation and use callback instead.'
+
 
 class Google
 
@@ -12,6 +15,8 @@ class Google
 	@WINDOW_CALLBACK_NAME = '__google_maps_api_provider_initializator__'
 
 
+	@script: null
+
 	@google: null
 
 	@loading: false
@@ -19,10 +24,11 @@ class Google
 	@callbacks: []
 
 
-	@load: (fn) ->
+	@load: (fn = null) ->
 		if @google == null
 			if @loading == true
-				@callbacks.push(fn)
+				if fn != null
+					@callbacks.push(fn)
 			else
 				@loading = true
 
@@ -33,27 +39,53 @@ class Google
 				url += "&key=#{@KEY}" if @KEY != null
 				url += "&callback=#{@WINDOW_CALLBACK_NAME}"
 
-				script = document.createElement('script')
-				script.type = 'text/javascript'
-				script.src = url
+				@script = document.createElement('script')
+				@script.type = 'text/javascript'
+				@script.src = url
 
-				document.body.appendChild(script)
-		else
+				document.body.appendChild(@script)
+		else if fn != null
 			fn(@google)
 
 		return {
-			then: ->
-				throw new Error 'Using promises is not supported anymore. Please take a look in new documentation and use callback instead.'
+			then: -> promiseError()
+			catch: -> promiseError()
+			fail: -> promiseError()
 		}
 
 
-	@_ready: (fn) =>
+	@release: (fn) ->
+		_release = =>
+			@google = null
+			@loading = false
+			@callbacks = []
+
+			if typeof window.google != 'undefined'
+				delete window.google
+
+			if typeof window[@WINDOW_CALLBACK_NAME] != 'undefined'
+				delete window[@WINDOW_CALLBACK_NAME]
+
+			if @script != null
+				@script.parentElement.removeChild(@script)
+				@script = null
+
+			fn()
+
+		if @loading
+			@load( -> _release() )
+		else
+			_release()
+
+
+	@_ready: (fn = null) =>
 		@loading = false
 
 		if @google == null
 			@google = window.google
 
-		fn(@google)
+		if fn != null
+			fn(@google)
 
 		for fn in @callbacks
 			fn(@google)
