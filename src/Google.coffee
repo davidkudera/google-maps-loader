@@ -1,5 +1,3 @@
-Q = require 'q'
-
 class Google
 
 
@@ -14,20 +12,18 @@ class Google
 
 	@loading: false
 
-	@promises: []
+	@callbacks: []
 
 
-	@load: ->
-		deferred = Q.defer()
-
+	@load: (fn) ->
 		if @google == null
 			if @loading == true
-				@promises.push(deferred)
+				@callbacks.push(fn)
 			else
 				@loading = true
 
 				window[@WINDOW_CALLBACK_NAME] = =>
-					@_ready(deferred)
+					@_ready(fn)
 
 				url = @URL
 				url += "&key=#{@KEY}" if @KEY != null
@@ -39,18 +35,26 @@ class Google
 
 				document.body.appendChild(script)
 		else
-			deferred.resolve(@google)
+			fn(@google)
 
-		return deferred.promise
+		return {
+			then: ->
+				throw new Error 'Using promises is not supported anymore. Please take a look in new documentation and use callback instead.'
+		}
 
 
-	@_ready: (deferred) =>
+	@_ready: (fn = null) =>
 		@loading = false
-		if @google == null then @google = window.google
-		deferred.resolve(@google)
-		for def in @promises
-			def.resolve(@google)
-		@promises = []
+
+		if @google == null
+			@google = window.google
+
+		fn(@google)
+
+		for fn in @callbacks
+			fn(@google)
+
+		@callbacks = []
 
 
 module.exports = Google
