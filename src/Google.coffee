@@ -1,3 +1,7 @@
+if typeof window == 'undefined'
+	throw new Error 'Google-maps package can be used only in browser.'
+
+
 class Google
 
 
@@ -57,4 +61,7 @@ class Google
 		@callbacks = []
 
 
-module.exports = Google
+if typeof module == 'object'
+	module.exports = Google
+else
+	window.GoogleMapsLoader = Google
