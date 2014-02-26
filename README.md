@@ -29,10 +29,25 @@ GoogleMapsLoader.load(function(google) {
 **If you are not using environment with common js support, you can use `GoogleMapsLoader` variable directly. It is
 already in `window` object.**
 
-## Own API key
+## Options
+
+### Own API key
 
 ```
-Loader.KEY = 'qwertyuiopasdfghjklzxcvbnm';
+GoogleMapsLoader.KEY = 'qwertyuiopasdfghjklzxcvbnm';
+```
+
+### Business API client
+
+```
+GoogleMapsLoader.CLIENT = 'yourclientkey';
+GoogleMapsLoader.VERSION = '3.14';
+```
+
+### Sensor
+
+```
+GoogleMapsLoader.SENSOR = true
 ```
 
 ## Unload google api
@@ -54,11 +69,10 @@ GoogleMapsLoader.onLoad(function(google) {
 });
 ```
 
-## Business API client
+## Tests
 
 ```
-Loader.CLIENT = 'yourclientkey';
-Loader.VERSION = '3.14';
+$ npm test
 ```
 
 ## Changelog list
