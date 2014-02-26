@@ -35,6 +35,25 @@ already in `window` object.**
 Loader.KEY = 'qwertyuiopasdfghjklzxcvbnm';
 ```
 
+## Unload google api
+
+For testing purposes is good to remove all google objects and restore loader to its original state.
+```
+GoogleMapsLoader.release(function() {
+	console.log('No google maps api around');
+});
+```
+
+## Events
+
+### onLoad
+
+```
+GoogleMapsLoader.onLoad(function(google) {
+	console.log('I just loaded google maps api');
+});
+```
+
 ## Changelog list
 
 * 1.0.0
