@@ -8,9 +8,15 @@ promiseError = ->
 class Google
 
 
-	@URL: 'https://maps.googleapis.com/maps/api/js?sensor=false'
+	@URL: 'https://maps.googleapis.com/maps/api/js'
 
 	@KEY: null
+
+	@CLIENT: null
+
+	@SENSOR: false
+
+	@VERSION: "3.14"
 
 	@WINDOW_CALLBACK_NAME = '__google_maps_api_provider_initializator__'
 
@@ -38,7 +44,23 @@ class Google
 					@_ready(fn)
 
 				url = @URL
-				url += "&key=#{@KEY}" if @KEY != null
+
+				# Add the sensor check variable
+				# We're being flexible with boolean or string input here
+				#
+				if @SENSOR is true or @SENSOR is "true"
+					url += "?sensor=true"
+				else
+					url += "?sensor=false"
+
+				# Add the client key if provided
+				#
+				url += "&key=#{@KEY}" if @KEY?
+
+				# Add the business API client parameter if provided
+				#
+				url += "&client=#{@CLIENT}&v=#{@VERSION}" if @CLIENT?
+
 				url += "&callback=#{@WINDOW_CALLBACK_NAME}"
 
 				@script = document.createElement('script')

@@ -54,7 +54,17 @@ GoogleMapsLoader.onLoad(function(google) {
 });
 ```
 
+## Business API client
+
+```
+Loader.CLIENT = 'yourclientkey';
+Loader.VERSION = '3.14';
+```
+
 ## Changelog list
+
+* 1.0.1
+    + Added Maps API for Business support
 
 * 1.0.0
 	+ Initial version
