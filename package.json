@@ -21,8 +21,5 @@
 	"engines": {
 		"node": "*"
 	},
-	"main": "./lib/Google.js",
-	"dependencies": {
-		"q": "0.9.6"
-	}
+	"main": "./lib/Google.js"
 }
