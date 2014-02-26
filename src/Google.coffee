@@ -47,7 +47,7 @@ class Google
 		}
 
 
-	@_ready: (fn = null) =>
+	@_ready: (fn) =>
 		@loading = false
 
 		if @google == null
