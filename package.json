@@ -1,7 +1,7 @@
 {
 	"name": "google-maps",
 	"description": "Wrapper for asynchronously used Google Maps API",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"author": {
 		"name": "David Kudera",
 		"email": "sakren@gmail.com"
@@ -22,7 +22,20 @@
 		"node": "*"
 	},
 	"main": "./lib/Google.js",
-	"dependencies": {
-		"q": "0.9.6"
+	"devDependencies": {
+		"uglify-js": "~2.4.12",
+		"coffee-script": "~1.7.1",
+		"mocha": "~1.17.1",
+		"mocha-phantomjs": "~3.3.2",
+		"phantomjs": "~1.9.7-1",
+		"chai": "~1.9.0"
+	},
+	"scripts": {
+		"build": "npm run compile && npm run minify",
+		"compile": "node ./node_modules/coffee-script/bin/coffee -co ./lib/ ./src/",
+		"compile-test": "node ./node_modules/coffee-script/bin/coffee -co ./test/lib/ ./test/src/",
+		"minify": "node ./node_modules/uglify-js/bin/uglifyjs ./lib/Google.js -o ./lib/Google.min.js",
+		"pretest": "npm run compile-test && npm run build",
+		"test": "node ./node_modules/mocha-phantomjs/bin/mocha-phantomjs -p ./node_modules/phantomjs/bin/phantomjs ./test/index.html"
 	}
 }
