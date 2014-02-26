@@ -12,10 +12,24 @@
           return GoogleMapsLoader.load().then();
         }).to["throw"](Error, 'Using promises is not supported anymore. Please take a look in new documentation and use callback instead.');
       });
-      return it('should load google api object', function(done) {
+      it('should load google api object', function(done) {
         return GoogleMapsLoader.load(function(google) {
           expect(google).to.be.a('object');
           expect(google).to.have.keys(['maps']);
+          return done();
+        });
+      });
+      return it('should load google api only for first time and then use stored object', function(done) {
+        var count;
+        count = 0;
+        GoogleMapsLoader.onLoad(function() {
+          return count++;
+        });
+        GoogleMapsLoader.load();
+        GoogleMapsLoader.load();
+        GoogleMapsLoader.load();
+        return GoogleMapsLoader.load(function() {
+          expect(count).to.be.equal(1);
           return done();
         });
       });

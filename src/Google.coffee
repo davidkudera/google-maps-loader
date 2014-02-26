@@ -23,6 +23,8 @@ class Google
 
 	@callbacks: []
 
+	@onLoadEvents: []
+
 
 	@load: (fn = null) ->
 		if @google == null
@@ -59,6 +61,7 @@ class Google
 			@google = null
 			@loading = false
 			@callbacks = []
+			@onLoadEvents = []
 
 			if typeof window.google != 'undefined'
 				delete window.google
@@ -78,11 +81,18 @@ class Google
 			_release()
 
 
+	@onLoad: (fn) ->
+		@onLoadEvents.push(fn)
+
+
 	@_ready: (fn = null) =>
 		@loading = false
 
 		if @google == null
 			@google = window.google
+
+		for event in @onLoadEvents
+			event(@google)
 
 		if fn != null
 			fn(@google)

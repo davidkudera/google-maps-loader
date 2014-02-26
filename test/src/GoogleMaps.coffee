@@ -18,6 +18,17 @@ describe 'GoogleMaps', ->
 				done()
 			)
 
+		it 'should load google api only for first time and then use stored object', (done) ->
+			count = 0
+			GoogleMapsLoader.onLoad( -> count++ )
+			GoogleMapsLoader.load()
+			GoogleMapsLoader.load()
+			GoogleMapsLoader.load()
+			GoogleMapsLoader.load( ->
+				expect(count).to.be.equal(1)
+				done()
+			)
+
 	describe '#release()', ->
 
 		it 'should restore google maps package to original state and remove google api object completely and load it again', (done) ->
