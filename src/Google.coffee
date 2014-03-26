@@ -12,6 +12,8 @@ class Google
 
 	@KEY: null
 
+	@LIBRARIES: null
+	
 	@CLIENT: null
 
 	@SENSOR: false
@@ -56,6 +58,10 @@ class Google
 				# Add the client key if provided
 				#
 				url += "&key=#{@KEY}" if @KEY?
+
+				# Add Libraries keyword if provided
+				#
+				url += "&libraries=#{@LIBRARIES}" if @LIBRARIES?
 
 				# Add the business API client parameter if provided
 				#
