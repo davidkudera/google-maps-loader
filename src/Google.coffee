@@ -12,7 +12,7 @@ class Google
 
 	@KEY: null
 
-	@LIBRARIES: null
+	@LIBRARIES: []
 	
 	@CLIENT: null
 
@@ -61,7 +61,7 @@ class Google
 
 				# Add Libraries keyword if provided
 				#
-				url += "&libraries=#{@LIBRARIES}" if @LIBRARIES?
+				url += "&libraries=#{@LIBRARIES.join ','}" if @LIBRARIES.length > 0
 
 				# Add the business API client parameter if provided
 				#
