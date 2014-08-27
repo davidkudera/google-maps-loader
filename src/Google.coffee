@@ -16,6 +16,8 @@ class Google
 
 	@SENSOR: false
 
+	@LIBRARIES: null
+
 	@VERSION: "3.14"
 
 	@WINDOW_CALLBACK_NAME = '__google_maps_api_provider_initializator__'
@@ -52,6 +54,10 @@ class Google
 					url += "?sensor=true"
 				else
 					url += "?sensor=false"
+
+				# Add libraries param if provided
+				#
+				url += "&libraries=#{@LIBRARIES}" if @LIBRARIES?
 
 				# Add the client key if provided
 				#
