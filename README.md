@@ -56,6 +56,12 @@ GoogleMapsLoader.VERSION = '3.14';
 GoogleMapsLoader.SENSOR = true
 ```
 
+### Libraries
+
+```
+GoogleMapsLoader.LIBRARIES = ['geometry', 'places'];
+```
+
 ## Unload google api
 
 For testing purposes is good to remove all google objects and restore loader to its original state.
