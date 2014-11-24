@@ -12,11 +12,15 @@ class Google
 
 	@KEY: null
 
+	@LIBRARIES: []
+	
 	@CLIENT: null
 
 	@SENSOR: false
 
-	@VERSION: "3.14"
+	@_VERSION = "3.14"
+
+	@VERSION: @_VERSION
 
 	@WINDOW_CALLBACK_NAME = '__google_maps_api_provider_initializator__'
 
@@ -43,29 +47,9 @@ class Google
 				window[@WINDOW_CALLBACK_NAME] = =>
 					@_ready(fn)
 
-				url = @URL
-
-				# Add the sensor check variable
-				# We're being flexible with boolean or string input here
-				#
-				if @SENSOR is true or @SENSOR is "true"
-					url += "?sensor=true"
-				else
-					url += "?sensor=false"
-
-				# Add the client key if provided
-				#
-				url += "&key=#{@KEY}" if @KEY?
-
-				# Add the business API client parameter if provided
-				#
-				url += "&client=#{@CLIENT}&v=#{@VERSION}" if @CLIENT?
-
-				url += "&callback=#{@WINDOW_CALLBACK_NAME}"
-
 				@script = document.createElement('script')
 				@script.type = 'text/javascript'
-				@script.src = url
+				@script.src = @createUrl()
 
 				document.body.appendChild(@script)
 		else if fn != null
@@ -78,8 +62,43 @@ class Google
 		}
 
 
+	@createUrl: ->
+		url = @URL
+
+		# Add the sensor check variable
+		# We're being flexible with boolean or string input here
+		#
+		if @SENSOR is true or @SENSOR is "true"
+			url += "?sensor=true"
+		else
+			url += "?sensor=false"
+
+		# Add the client key if provided
+		#
+		url += "&key=#{@KEY}" if @KEY?
+
+		# Add Libraries keyword if provided
+		#
+		url += "&libraries=#{@LIBRARIES.join ','}" if @LIBRARIES.length > 0
+
+		# Add the business API client parameter if provided
+		#
+		url += "&client=#{@CLIENT}&v=#{@VERSION}" if @CLIENT?
+
+		# Load data to temporary global callback (jsonp)
+		url += "&callback=#{@WINDOW_CALLBACK_NAME}"
+
+		return url
+
+
 	@release: (fn) ->
 		_release = =>
+			@KEY = null
+			@LIBRARIES = []
+			@CLIENT = null
+			@SENSOR = false
+			@VERSION = @_VERSION
+
 			@google = null
 			@loading = false
 			@callbacks = []

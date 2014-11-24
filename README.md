@@ -56,6 +56,12 @@ GoogleMapsLoader.VERSION = '3.14';
 GoogleMapsLoader.SENSOR = true
 ```
 
+### Libraries
+
+```
+GoogleMapsLoader.LIBRARIES = ['geometry', 'places'];
+```
+
 ## Unload google api
 
 For testing purposes is good to remove all google objects and restore loader to its original state.
@@ -82,6 +88,11 @@ $ npm test
 ```
 
 ## Changelog list
+
+* 2.1.0
+	+ Added support for libraries [#3](https://github.com/sakren/node-google-maps/pull/3) (thanks [popara](https://github.com/popara))
+	+ Added tests
+	+ Small optimization
 
 * 2.0.0
     + Added Maps API for Business support
