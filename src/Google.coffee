@@ -18,7 +18,9 @@ class Google
 
 	@SENSOR: false
 
-	@VERSION: "3.14"
+	@_VERSION = "3.14"
+
+	@VERSION: @_VERSION
 
 	@WINDOW_CALLBACK_NAME = '__google_maps_api_provider_initializator__'
 
@@ -91,6 +93,12 @@ class Google
 
 	@release: (fn) ->
 		_release = =>
+			@KEY = null
+			@LIBRARIES = []
+			@CLIENT = null
+			@SENSOR = false
+			@VERSION = @_VERSION
+
 			@google = null
 			@loading = false
 			@callbacks = []
