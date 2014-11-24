@@ -1,7 +1,7 @@
 {
 	"name": "google-maps",
 	"description": "Wrapper for asynchronously used Google Maps API",
-	"version": "2.0.0",
+	"version": "2.1.1",
 	"author": {
 		"name": "David Kudera",
 		"email": "sakren@gmail.com"
