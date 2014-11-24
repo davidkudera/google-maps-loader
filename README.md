@@ -89,6 +89,9 @@ $ npm test
 
 ## Changelog list
 
+* 2.1.1
+	+ Sh**.... Forgot to increase version at package.json
+
 * 2.1.0
 	+ Added support for libraries [#3](https://github.com/sakren/node-google-maps/pull/3) (thanks [popara](https://github.com/popara))
 	+ Added tests
