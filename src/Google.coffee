@@ -18,7 +18,7 @@ class Google
 
 	@SENSOR: false
 
-	@_VERSION = "3.14"
+	@_VERSION = "3.18"
 
 	@VERSION: @_VERSION
 
