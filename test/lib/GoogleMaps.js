@@ -76,10 +76,14 @@
         GoogleMapsLoader.LIBRARIES = ['hello', 'day'];
         return expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?sensor=false&libraries=hello,day&callback=' + cb);
       });
-      return it('should create url with client and version', function() {
+      it('should create url with client and version', function() {
         GoogleMapsLoader.CLIENT = 'buf';
         GoogleMapsLoader.VERSION = '999';
         return expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?sensor=false&client=buf&v=999&callback=' + cb);
+      });
+      return it('should create url with channel', function() {
+        GoogleMapsLoader.CHANNEL = 'abcdefghijkl';
+        return expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?sensor=false&channel=abcdefghijkl&callback=' + cb);
       });
     });
   });

@@ -13,8 +13,10 @@ class Google
 	@KEY: null
 
 	@LIBRARIES: []
-	
+
 	@CLIENT: null
+
+	@CHANNEL: null
 
 	@SENSOR: false
 
@@ -84,6 +86,10 @@ class Google
 		# Add the business API client parameter if provided
 		#
 		url += "&client=#{@CLIENT}&v=#{@VERSION}" if @CLIENT?
+
+		# Add channel parameter if provided
+		#
+		url += "&channel=#{@CHANNEL}" if @CHANNEL?
 
 		# Load data to temporary global callback (jsonp)
 		url += "&callback=#{@WINDOW_CALLBACK_NAME}"
