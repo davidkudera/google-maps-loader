@@ -74,3 +74,7 @@ describe 'GoogleMaps', ->
 			GoogleMapsLoader.CLIENT = 'buf'
 			GoogleMapsLoader.VERSION = '999'
 			expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?sensor=false&client=buf&v=999&callback=' + cb)
+
+		it 'should create url with channel', ->
+			GoogleMapsLoader.CHANNEL = 'abcdefghijkl'
+			expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?sensor=false&channel=abcdefghijkl&callback=' + cb)
