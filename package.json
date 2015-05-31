@@ -23,11 +23,11 @@
 	},
 	"main": "./lib/Google.js",
 	"devDependencies": {
-		"uglify-js": "~2.4.15",
-		"mocha": "~2.0.1",
-		"mocha-phantomjs": "~3.5.1",
-		"phantomjs": "~1.9.12",
-		"chai": "~1.10.0"
+		"uglify-js": "~2.4.0",
+		"mocha": "~2.2.0",
+		"mocha-phantomjs": "~3.5.0",
+		"phantomjs": "~1.9.0",
+		"chai": "~2.3.0"
 	},
 	"scripts": {
 		"minify": "node ./node_modules/uglify-js/bin/uglifyjs ./lib/Google.js -o ./lib/Google.min.js",
