@@ -38,6 +38,7 @@
 				GoogleMapsLoader.load();
 				GoogleMapsLoader.load();
 				GoogleMapsLoader.load();
+
 				GoogleMapsLoader.load(function() {
 					expect(count).to.be.equal(1);
 					done()
@@ -49,13 +50,13 @@
 
 			it('should restore google maps package to original state and remove google api object completely and load it again', function(done) {
 				GoogleMapsLoader.load(function() {
-					GoogleMapsLoader.release(function() {
-						expect(GoogleMapsLoader.google).to.be.null;
-						expect(window.google).to.be.undefined;
+					expect(GoogleMapsLoader.isLoaded()).to.be.true;
 
-						GoogleMapsLoader.load(function(google) {
-							expect(google).to.be.a('object');
-							expect(google).to.have.keys(['maps']);
+					GoogleMapsLoader.release(function() {
+						expect(GoogleMapsLoader.isLoaded()).to.be.false;
+
+						GoogleMapsLoader.load(function() {
+							expect(GoogleMapsLoader.isLoaded()).to.be.true;
 							done();
 						});
 					});
