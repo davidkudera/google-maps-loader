@@ -6,6 +6,10 @@
 
 	describe('GoogleMaps', function() {
 
+		beforeEach(function() {
+			GoogleMapsLoader.makeMock();
+		});
+
 		afterEach(function(done) {
 			GoogleMapsLoader.release(function() {
 				done();
@@ -23,7 +27,7 @@
 			it('should load google api object', function(done) {
 				GoogleMapsLoader.load(function(google) {
 					expect(google).to.be.a('object');
-					expect(google).to.have.keys(['maps']);
+					expect(GoogleMapsLoader.isLoaded()).to.be.true;
 					done();
 				});
 			});
@@ -55,6 +59,7 @@
 					GoogleMapsLoader.release(function() {
 						expect(GoogleMapsLoader.isLoaded()).to.be.false;
 
+						GoogleMapsLoader.makeMock();
 						GoogleMapsLoader.load(function() {
 							expect(GoogleMapsLoader.isLoaded()).to.be.true;
 							done();
