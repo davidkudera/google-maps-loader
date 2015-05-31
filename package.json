@@ -24,17 +24,13 @@
 	"main": "./lib/Google.js",
 	"devDependencies": {
 		"uglify-js": "~2.4.15",
-		"coffee-script": "~1.8.0",
 		"mocha": "~2.0.1",
 		"mocha-phantomjs": "~3.5.1",
 		"phantomjs": "~1.9.12",
 		"chai": "~1.10.0"
 	},
 	"scripts": {
-		"build": "npm run compile && npm run minify",
-		"compile": "node ./node_modules/coffee-script/bin/coffee -co ./lib/ ./src/",
 		"minify": "node ./node_modules/uglify-js/bin/uglifyjs ./lib/Google.js -o ./lib/Google.min.js",
-		"pretest": "npm run build",
 		"test": "node ./node_modules/mocha-phantomjs/bin/mocha-phantomjs -p ./node_modules/phantomjs/bin/phantomjs ./test/index.html"
 	}
 }
