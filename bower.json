@@ -1,0 +1,11 @@
+{
+	"name": "google-maps",
+	"version": "3.0.0",
+	"main": "lib/Google.js",
+	"ignore": [
+		"node_modules",
+		"test",
+		"**/.*",
+		"*.json"
+	]
+}
