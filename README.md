@@ -1,8 +1,8 @@
-[![NPM version](https://badge.fury.io/js/google-maps.png)](http://badge.fury.io/js/google-maps)
-[![Dependency Status](https://gemnasium.com/sakren/node-google-maps.png)](https://gemnasium.com/sakren/node-google-maps)
-[![Build Status](https://travis-ci.org/sakren/node-google-maps.png?branch=master)](https://travis-ci.org/sakren/node-google-maps)
+[![NPM version](https://img.shields.io/npm/v/google-maps.svg?style=flat-square)](https://www.npmjs.com/package/browser-http)
+[![Dependency Status](https://img.shields.io/gemnasium/Carrooi/Node-GoogleMaps.svg?style=flat-square)](https://gemnasium.com/Carrooi/Node-GoogleMaps)
+[![Build Status](https://img.shields.io/travis/Carrooi/Node-GoogleMaps.svg?style=flat-square)](https://travis-ci.org/Carrooi/Node-GoogleMaps)
 
-[![Donate](http://b.repl.ca/v1/donate-PayPal-brightgreen.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ARUCDRF95XRBA)
+[![Donate](https://img.shields.io/badge/donate-PayPal-brightgreen.svg?style=flat-square)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ARUCDRF95XRBA)
 
 # Google Maps
 
