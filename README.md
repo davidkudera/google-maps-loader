@@ -89,6 +89,15 @@ $ npm test
 
 ## Changelog list
 
+* 3.0.0
+	+ Register to bower registry
+	+ Moved to Carrooi organization
+	+ Using mocked loader, so tests are much faster
+	+ Optimized building request url
+	+ Some variables and methods are now private and not accessible from outside
+	+ Updated dependencies
+	+ Whole package is written in javascript, not coffeescript
+
 * 2.1.1
 	+ Sh**.... Forgot to increase version at package.json
 
