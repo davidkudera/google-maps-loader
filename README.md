@@ -62,6 +62,12 @@ GoogleMapsLoader.SENSOR = true
 GoogleMapsLoader.LIBRARIES = ['geometry', 'places'];
 ```
 
+### Localization
+
+```
+GoogleMapsLoader.LANGUAGE = 'fr';
+```
+
 ## Unload google api
 
 For testing purposes is good to remove all google objects and restore loader to its original state.
