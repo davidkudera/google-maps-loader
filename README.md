@@ -19,13 +19,13 @@ $ npm install google-maps
 ```
 
 Download and import one of these files into your .html file:
-* [Development version](https://raw.github.com/sakren/node-google-maps/master/lib/Google.js)
-* [Production version](https://raw.github.com/sakren/node-google-maps/master/lib/Google.min.js)
+* [Development version](https://raw.github.com/Carrooi/Js-GoogleMapsLoader/master/lib/Google.js)
+* [Production version](https://raw.github.com/Carrooi/Js-GoogleMapsLoader/master/lib/Google.min.js)
 
 ## Usage
 
-```
-var GoogleMapsLoader = require('google-maps');		// only for common js environments
+```javascript
+var GoogleMapsLoader = require('google-maps'); // only for common js environments
 
 GoogleMapsLoader.load(function(google) {
 	new google.maps.Map(el, options);
@@ -39,33 +39,40 @@ already in `window` object.**
 
 ### Own API key
 
-```
+```javascript
 GoogleMapsLoader.KEY = 'qwertyuiopasdfghjklzxcvbnm';
 ```
 
 ### Business API client
 
-```
+```javascript
 GoogleMapsLoader.CLIENT = 'yourclientkey';
 GoogleMapsLoader.VERSION = '3.14';
 ```
 
 ### Sensor
 
-```
+```javascript
 GoogleMapsLoader.SENSOR = true
 ```
 
 ### Libraries
 
-```
+```javascript
 GoogleMapsLoader.LIBRARIES = ['geometry', 'places'];
+```
+
+### Localization
+
+```javascript
+GoogleMapsLoader.LANGUAGE = 'fr';
 ```
 
 ## Unload google api
 
 For testing purposes is good to remove all google objects and restore loader to its original state.
-```
+
+```javascript
 GoogleMapsLoader.release(function() {
 	console.log('No google maps api around');
 });
@@ -75,7 +82,7 @@ GoogleMapsLoader.release(function() {
 
 ### onLoad
 
-```
+```javascript
 GoogleMapsLoader.onLoad(function(google) {
 	console.log('I just loaded google maps api');
 });
@@ -88,6 +95,14 @@ $ npm test
 ```
 
 ## Changelog list
+
+* 3.1.0
+	+ Fix mock google maps loader 
+	+ Add language parameter [#17](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/17)
+	+ Fix typos at readme [#19](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/19)
+	+ Fix for IE 8 [#21](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/21)
+	+ Rename repository to Js-GoogleMapsLoader [#15](https://github.com/Carrooi/Js-GoogleMapsLoader/issues/15)
+	+ 
 
 * 3.0.0
 	+ Register to bower registry
@@ -102,17 +117,17 @@ $ npm test
 	+ Sh**.... Forgot to increase version at package.json
 
 * 2.1.0
-	+ Added support for libraries [#3](https://github.com/sakren/node-google-maps/pull/3) (thanks [popara](https://github.com/popara))
+	+ Added support for libraries [#3](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/3) (thanks [popara](https://github.com/popara))
 	+ Added tests
 	+ Small optimization
 
 * 2.0.0
-    + Added Maps API for Business support
-    + Added standalone version for non common js environments
-    + Removed dependency on [q](https://github.com/kriskowal/q) package
-    + Using callback instead of promise
-    + Added tests + travis
-    + Added status badges
+	+ Added Maps API for Business support
+	+ Added standalone version for non common js environments
+	+ Removed dependency on [q](https://github.com/kriskowal/q) package
+	+ Using callback instead of promise
+	+ Added tests + travis
+	+ Added status badges
 
 * 1.0.0
 	+ Initial version

@@ -1,10 +1,10 @@
 {
 	"name": "google-maps",
 	"description": "Wrapper for asynchronously used Google Maps API",
-	"version": "3.0.0",
+	"version": "3.1.0",
 	"author": {
 		"name": "David Kudera",
-		"email": "sakren@gmail.com"
+		"email": "kudera.d@gmail.com"
 	},
 	"keywords": [
 		"google",
@@ -15,7 +15,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:Carrooi/Node-GoogleMaps.git"
+		"url": "git@github.com:Carrooi/Js-GoogleMapsLoader.git"
 	},
 	"license": "MIT",
 	"engines": {

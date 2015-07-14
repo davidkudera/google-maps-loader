@@ -108,6 +108,10 @@
 				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=false&channel=abcdefghijkl');
 			});
 
+			it('should create url with language', function() {
+				GoogleMapsLoader.LANGUAGE = 'fr';
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=false&language=fr');
+			});
 		});
 
 	});
