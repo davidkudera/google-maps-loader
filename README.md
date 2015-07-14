@@ -19,8 +19,8 @@ $ npm install google-maps
 ```
 
 Download and import one of these files into your .html file:
-* [Development version](https://raw.github.com/sakren/node-google-maps/master/lib/Google.js)
-* [Production version](https://raw.github.com/sakren/node-google-maps/master/lib/Google.min.js)
+* [Development version](https://raw.github.com/Carrooi/Js-GoogleMapsLoader/master/lib/Google.js)
+* [Production version](https://raw.github.com/Carrooi/Js-GoogleMapsLoader/master/lib/Google.min.js)
 
 ## Usage
 
@@ -108,7 +108,7 @@ $ npm test
 	+ Sh**.... Forgot to increase version at package.json
 
 * 2.1.0
-	+ Added support for libraries [#3](https://github.com/sakren/node-google-maps/pull/3) (thanks [popara](https://github.com/popara))
+	+ Added support for libraries [#3](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/3) (thanks [popara](https://github.com/popara))
 	+ Added tests
 	+ Small optimization
 
