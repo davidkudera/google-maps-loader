@@ -24,8 +24,8 @@ Download and import one of these files into your .html file:
 
 ## Usage
 
-```
-var GoogleMapsLoader = require('google-maps');		// only for common js environments
+```javascript
+var GoogleMapsLoader = require('google-maps'); // only for common js environments
 
 GoogleMapsLoader.load(function(google) {
 	new google.maps.Map(el, options);
@@ -39,39 +39,40 @@ already in `window` object.**
 
 ### Own API key
 
-```
+```javascript
 GoogleMapsLoader.KEY = 'qwertyuiopasdfghjklzxcvbnm';
 ```
 
 ### Business API client
 
-```
+```javascript
 GoogleMapsLoader.CLIENT = 'yourclientkey';
 GoogleMapsLoader.VERSION = '3.14';
 ```
 
 ### Sensor
 
-```
+```javascript
 GoogleMapsLoader.SENSOR = true
 ```
 
 ### Libraries
 
-```
+```javascript
 GoogleMapsLoader.LIBRARIES = ['geometry', 'places'];
 ```
 
 ### Localization
 
-```
+```javascript
 GoogleMapsLoader.LANGUAGE = 'fr';
 ```
 
 ## Unload google api
 
 For testing purposes is good to remove all google objects and restore loader to its original state.
-```
+
+```javascript
 GoogleMapsLoader.release(function() {
 	console.log('No google maps api around');
 });
@@ -81,7 +82,7 @@ GoogleMapsLoader.release(function() {
 
 ### onLoad
 
-```
+```javascript
 GoogleMapsLoader.onLoad(function(google) {
 	console.log('I just loaded google maps api');
 });
@@ -113,12 +114,12 @@ $ npm test
 	+ Small optimization
 
 * 2.0.0
-    + Added Maps API for Business support
-    + Added standalone version for non common js environments
-    + Removed dependency on [q](https://github.com/kriskowal/q) package
-    + Using callback instead of promise
-    + Added tests + travis
-    + Added status badges
+	+ Added Maps API for Business support
+	+ Added standalone version for non common js environments
+	+ Removed dependency on [q](https://github.com/kriskowal/q) package
+	+ Using callback instead of promise
+	+ Added tests + travis
+	+ Added status badges
 
 * 1.0.0
 	+ Initial version
