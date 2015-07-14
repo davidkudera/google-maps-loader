@@ -1,4 +1,4 @@
-[![NPM version](https://img.shields.io/npm/v/google-maps.svg?style=flat-square)](https://www.npmjs.com/package/browser-http)
+[![NPM version](https://img.shields.io/npm/v/google-maps.svg?style=flat-square)](https://www.npmjs.com/package/google-maps)
 [![Dependency Status](https://img.shields.io/gemnasium/Carrooi/Node-GoogleMaps.svg?style=flat-square)](https://gemnasium.com/Carrooi/Node-GoogleMaps)
 [![Build Status](https://img.shields.io/travis/Carrooi/Node-GoogleMaps.svg?style=flat-square)](https://travis-ci.org/Carrooi/Node-GoogleMaps)
 
