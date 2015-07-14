@@ -96,6 +96,14 @@ $ npm test
 
 ## Changelog list
 
+* 3.1.0
+	+ Fix mock google maps loader 
+	+ Add language parameter [#17](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/17)
+	+ Fix typos at readme [#19](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/19)
+	+ Fix for IE 8 [#21](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/21)
+	+ Rename repository to Js-GoogleMapsLoader [#15](https://github.com/Carrooi/Js-GoogleMapsLoader/issues/15)
+	+ 
+
 * 3.0.0
 	+ Register to bower registry
 	+ Moved to Carrooi organization
