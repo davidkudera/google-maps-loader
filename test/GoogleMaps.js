@@ -77,11 +77,31 @@
 				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=true');
 			});
 
-			it('should create url without sensor support', function() {
+			it('should create url without sensor param', function() {
 				GoogleMapsLoader.SENSOR = false;
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb);
+			});
+			
+			it('should create url without sensor param', function() {
+				GoogleMapsLoader.SENSOR = null;
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb);
+			});
+			
+			it('should create url without sensor support', function() {
+				GoogleMapsLoader.SENSOR = 'false';
 				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=false');
 			});
-
+			
+			it('should create url with sensor support', function() {
+				GoogleMapsLoader.SENSOR = 'true';
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=true');
+			});
+			
+			it('should create url without sensor support', function() {
+				GoogleMapsLoader.SENSOR = 'anything';
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=false');
+			});
+			
 			it('should create url with key', function() {
 				GoogleMapsLoader.KEY = 'abcdefghijkl';
 				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=false&key=abcdefghijkl');
