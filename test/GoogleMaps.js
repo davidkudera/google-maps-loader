@@ -77,40 +77,60 @@
 				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=true');
 			});
 
-			it('should create url without sensor support', function() {
+			it('should create url without sensor param', function() {
 				GoogleMapsLoader.SENSOR = false;
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb);
+			});
+			
+			it('should create url without sensor param', function() {
+				GoogleMapsLoader.SENSOR = null;
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb);
+			});
+			
+			it('should create url without sensor support', function() {
+				GoogleMapsLoader.SENSOR = 'false';
 				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=false');
 			});
-
+			
+			it('should create url with sensor support', function() {
+				GoogleMapsLoader.SENSOR = 'true';
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=true');
+			});
+			
+			it('should create url without sensor support', function() {
+				GoogleMapsLoader.SENSOR = 'anything';
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=false');
+			});
+			
 			it('should create url with key', function() {
 				GoogleMapsLoader.KEY = 'abcdefghijkl';
-				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=false&key=abcdefghijkl');
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&key=abcdefghijkl');
 			});
 
 			it('should create url with one library', function() {
 				GoogleMapsLoader.LIBRARIES = ['hello'];
-				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=false&libraries=hello');
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&libraries=hello');
 			});
 
 			it('should create url with more libraries', function() {
 				GoogleMapsLoader.LIBRARIES = ['hello', 'day'];
-				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=false&libraries=hello,day');
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&libraries=hello,day');
 			});
 
 			it('should create url with client and version', function() {
 				GoogleMapsLoader.CLIENT = 'buf';
 				GoogleMapsLoader.VERSION = '999';
-				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=false&client=buf&v=999');
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&client=buf&v=999');
 			});
 
 			it('should create url with channel', function() {
 				GoogleMapsLoader.CHANNEL = 'abcdefghijkl';
-				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=false&channel=abcdefghijkl');
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&channel=abcdefghijkl');
 			});
 
 			it('should create url with language', function() {
 				GoogleMapsLoader.LANGUAGE = 'fr';
-				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&sensor=false&language=fr');
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&language=fr');
 			});
 		});
 
