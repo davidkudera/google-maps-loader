@@ -50,12 +50,6 @@ GoogleMapsLoader.CLIENT = 'yourclientkey';
 GoogleMapsLoader.VERSION = '3.14';
 ```
 
-### Sensor
-
-```javascript
-GoogleMapsLoader.SENSOR = true
-```
-
 ### Libraries
 
 ```javascript
