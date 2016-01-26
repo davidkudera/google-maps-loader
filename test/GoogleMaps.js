@@ -96,6 +96,11 @@
 				GoogleMapsLoader.LANGUAGE = 'fr';
 				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&language=fr');
 			});
+
+			it('should create url with region', function() {
+				GoogleMapsLoader.REGION = 'GB';
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&region=GB');
+			});
 		});
 
 	});
