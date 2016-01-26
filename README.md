@@ -96,6 +96,9 @@ $ npm test
 
 ## Changelog list
 
+* 3.2.1
+	+ Typo in readme
+
 * 3.2.0
 	+ Removed support for SENSOR parameter [#34](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/34)
 	+ Add support for REGION parameter [#36](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/36)
