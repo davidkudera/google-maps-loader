@@ -68,6 +68,12 @@ GoogleMapsLoader.LIBRARIES = ['geometry', 'places'];
 GoogleMapsLoader.LANGUAGE = 'fr';
 ```
 
+### Region
+
+```javascript
+GoogleMapsLoader.REGION = 'GB';
+```
+
 ## Unload google api
 
 For testing purposes is good to remove all google objects and restore loader to its original state.
@@ -96,13 +102,19 @@ $ npm test
 
 ## Changelog list
 
+* 3.2.0
+	+ Removed support for SENSOR parameter [#34](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/34)
+	+ Add support for REGION parameter [#36](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/36)
+	+ Removed deprecated promises API [#24](https://github.com/Carrooi/Js-GoogleMapsLoader/issues/24)
+	+ Fix some testing cases [#23](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/23)
+	+ Typo in readme [#22](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/22)
+
 * 3.1.0
 	+ Fix mock google maps loader 
 	+ Add language parameter [#17](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/17)
 	+ Fix typos at readme [#19](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/19)
 	+ Fix for IE 8 [#21](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/21)
 	+ Rename repository to Js-GoogleMapsLoader [#15](https://github.com/Carrooi/Js-GoogleMapsLoader/issues/15)
-	+ 
 
 * 3.0.0
 	+ Register to bower registry
