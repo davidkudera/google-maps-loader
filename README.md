@@ -50,12 +50,6 @@ GoogleMapsLoader.CLIENT = 'yourclientkey';
 GoogleMapsLoader.VERSION = '3.14';
 ```
 
-### Sensor
-
-```javascript
-GoogleMapsLoader.SENSOR = true
-```
-
 ### Libraries
 
 ```javascript
@@ -101,6 +95,9 @@ $ npm test
 ```
 
 ## Changelog list
+
+* 3.2.1
+	+ Typo in readme
 
 * 3.2.0
 	+ Removed support for SENSOR parameter [#34](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/34)
