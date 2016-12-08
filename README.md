@@ -88,6 +88,14 @@ GoogleMapsLoader.onLoad(function(google) {
 });
 ```
 
+### onAuthFail
+
+```javascript
+GoogleMapsLoader.onAuthFail(function() {
+	console.warn('Credentials failed!');
+});
+```
+
 ## Tests
 
 ```
@@ -107,7 +115,7 @@ $ npm test
 	+ Typo in readme [#22](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/22)
 
 * 3.1.0
-	+ Fix mock google maps loader 
+	+ Fix mock google maps loader
 	+ Add language parameter [#17](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/17)
 	+ Fix typos at readme [#19](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/19)
 	+ Fix for IE 8 [#21](https://github.com/Carrooi/Js-GoogleMapsLoader/pull/21)

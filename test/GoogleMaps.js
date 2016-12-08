@@ -22,8 +22,24 @@
 				GoogleMapsLoader.load(function(google) {
 					expect(google).to.be.a('object');
 					expect(GoogleMapsLoader.isLoaded()).to.be.true;
+					expect(GoogleMapsLoader.hasAuthFailed()).to.be.false;
 					done();
 				});
+			});
+
+			it('should trigger error callbacks when authentication fails', function(done) {
+				GoogleMapsLoader.makeMock({InvalidKey: true});
+				var count = 0;
+
+				GoogleMapsLoader.onAuthFail(function() {
+					count++;
+				});
+				GoogleMapsLoader.onAuthFail(function() {
+					expect(count).to.be.equal(1);
+					expect(GoogleMapsLoader.hasAuthFailed()).to.be.true;
+					done();
+				});
+				GoogleMapsLoader.load();
 			});
 
 			it('should load google api only for first time and then use stored object', function(done) {
