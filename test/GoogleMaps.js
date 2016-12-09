@@ -41,6 +41,14 @@
 				});
 				GoogleMapsLoader.load();
 			});
+			it('should set authHasFailed state when authentication fails', function (done) {
+				GoogleMapsLoader.makeMock({InvalidKey: true});
+				GoogleMapsLoader.load();
+				setTimeout(function() {
+					expect(GoogleMapsLoader.hasAuthFailed()).to.be.true;
+					done();
+				}, 50);
+			});
 
 			it('should load google api only for first time and then use stored object', function(done) {
 				var count = 0;
