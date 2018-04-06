@@ -3,6 +3,7 @@
 	var baseUrl = GoogleMapsLoader.URL;
 
 	var cb = GoogleMapsLoader.WINDOW_CALLBACK_NAME;
+	var googleVersion = '3.27';
 
 	describe('GoogleMaps', function() {
 
@@ -68,38 +69,42 @@
 
 			it('should create url with key', function() {
 				GoogleMapsLoader.KEY = 'abcdefghijkl';
-				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&key=abcdefghijkl');
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&key=abcdefghijkl' + '&v=' + googleVersion);
 			});
 
 			it('should create url with one library', function() {
 				GoogleMapsLoader.LIBRARIES = ['hello'];
-				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&libraries=hello');
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&libraries=hello' + '&v=' + googleVersion);
 			});
 
 			it('should create url with more libraries', function() {
 				GoogleMapsLoader.LIBRARIES = ['hello', 'day'];
-				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&libraries=hello,day');
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&libraries=hello,day' + '&v=' + googleVersion);
 			});
 
-			it('should create url with client and version', function() {
-				GoogleMapsLoader.CLIENT = 'buf';
+			it('should create url with version', function() {
 				GoogleMapsLoader.VERSION = '999';
-				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&client=buf&v=999');
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&v=999');
+			});
+
+			it('should create url with client', function() {
+				GoogleMapsLoader.CLIENT = 'buf';
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&client=buf' + '&v=' + googleVersion);
 			});
 
 			it('should create url with channel', function() {
 				GoogleMapsLoader.CHANNEL = 'abcdefghijkl';
-				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&channel=abcdefghijkl');
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&channel=abcdefghijkl' + '&v=' + googleVersion);
 			});
 
 			it('should create url with language', function() {
 				GoogleMapsLoader.LANGUAGE = 'fr';
-				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&language=fr');
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&language=fr' + '&v=' + googleVersion);
 			});
 
 			it('should create url with region', function() {
 				GoogleMapsLoader.REGION = 'GB';
-				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&region=GB');
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&region=GB' + '&v=' + googleVersion);
 			});
 		});
 
