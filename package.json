@@ -33,5 +33,8 @@
 	"scripts": {
 		"minify": "node ./node_modules/uglify-js/bin/uglifyjs ./lib/Google.js -o ./lib/Google.min.js",
 		"test": "node ./node_modules/mocha-phantomjs/bin/mocha-phantomjs -p ./node_modules/phantomjs/bin/phantomjs ./test/index.html"
+	},
+	"dependencies": {
+		"@types/googlemaps": "^3.30.19"
 	}
 }
