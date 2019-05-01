@@ -25,6 +25,7 @@ declare namespace GoogleMapsLoader {
     export function onLoad(callBack?: CallBack): void;
     export function load(callBack?: CallBack): void;
     export function isLoaded(): boolean;
+    export function isErrored(): boolean;
     export function createLoader(): void;
     export function createUrl(): string;
     export function makeMock(): void;
