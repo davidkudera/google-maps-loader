@@ -1,7 +1,7 @@
 {
 	"name": "google-maps",
-	"description": "Wrapper for asynchronously used Google Maps API",
-	"version": "3.3.0",
+	"description": "Async loader for google maps api (browser, typescript)",
+	"version": "4.0.0",
 	"author": {
 		"name": "David Kudera",
 		"email": "kudera.d@gmail.com"
@@ -10,27 +10,23 @@
 		"google",
 		"maps",
 		"asynchronous",
-		"browser",
-		"wrapper"
+		"async",
+		"loader",
+		"browser"
 	],
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:Carrooi/Js-GoogleMapsLoader.git"
+		"url": "git@github.com:davidkudera/google-maps-loader.git"
 	},
 	"license": "MIT",
-	"engines": {
-		"node": "*"
-	},
-	"main": "./lib/Google.js",
+	"main": "./lib/index.js",
+	"types": "./lib/index.d.ts",
 	"devDependencies": {
-		"uglify-js": "~2.4.0",
-		"mocha": "~2.2.0",
-		"mocha-phantomjs": "~3.5.0",
-		"phantomjs": "~1.9.0",
-		"chai": "~2.3.0"
+		"@types/node": "^13.1.6",
+		"typescript": "^3.7.4"
 	},
 	"scripts": {
-		"minify": "node ./node_modules/uglify-js/bin/uglifyjs ./lib/Google.js -o ./lib/Google.min.js",
-		"test": "node ./node_modules/mocha-phantomjs/bin/mocha-phantomjs -p ./node_modules/phantomjs/bin/phantomjs ./test/index.html"
+		"build": "tsc",
+		"watch": "tsc --watch"
 	}
 }
