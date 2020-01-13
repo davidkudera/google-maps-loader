@@ -16,6 +16,8 @@ export class Loader
 
 	private resolve: (api: any) => void;
 
+	private reject: (err: Error) => void;
+
 	private api: any|undefined;
 
 	constructor(
@@ -23,7 +25,7 @@ export class Loader
 		private options: LoaderOptions = {},
 	) {
 		if (typeof window === 'undefined') {
-			throw new Error('google-maps-loader is supported only in browser environment');
+			throw new Error('google-maps is supported only in browser environment');
 		}
 	}
 
@@ -47,8 +49,17 @@ export class Loader
 			this.resolve(this.api);
 		};
 
+		window['gm_authFailure'] = () => {
+			if (typeof this.reject === 'undefined') {
+				throw new Error('Should not happen');
+			}
+
+			this.reject(new Error('google-maps: authentication error'));
+		};
+
 		return this.loader = new Promise((resolve, reject) => {
 			this.resolve = resolve;
+			this.reject = reject;
 
 			const script = document.createElement('script');
 			script.src = this.createUrl();
