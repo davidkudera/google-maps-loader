@@ -54,6 +54,10 @@ loader.load().then(function (google) {
 
 ## Changelog list
 
+* 4.1.0
+    + Reject on load error
+    + Reject on authentication error
+
 * 4.0.0
     + Rewrite in typescript with await/async support
 
