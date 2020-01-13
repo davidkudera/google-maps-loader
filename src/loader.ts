@@ -14,7 +14,7 @@ export class Loader
 
 	private loader: Promise<any>|undefined;
 
-	private resolve: (value: any) => void;
+	private resolve: (api: any) => void;
 
 	private api: any|undefined;
 
@@ -47,11 +47,14 @@ export class Loader
 			this.resolve(this.api);
 		};
 
-		return this.loader = new Promise((resolve) => {
+		return this.loader = new Promise((resolve, reject) => {
 			this.resolve = resolve;
+
 			const script = document.createElement('script');
 			script.src = this.createUrl();
 			script.async = true;
+			script.onerror = (e) => reject(e);
+
 			document.head.append(script);
 		});
 	}
