@@ -1,3 +1,6 @@
+import {google} from './types';
+
+
 export declare interface LoaderOptions
 {
 	version?: string,
@@ -12,13 +15,13 @@ export class Loader
 {
 	private static CALLBACK_NAME = '_dk_google_maps_loader_cb';
 
-	private loader: Promise<any>|undefined;
+	private loader: Promise<google>|undefined;
 
-	private resolve: (api: any) => void;
+	private resolve: (api: google) => void;
 
 	private reject: (err: Error) => void;
 
-	private api: any|undefined;
+	private api: google|undefined;
 
 	constructor(
 		private apiKey: string,
@@ -29,7 +32,7 @@ export class Loader
 		}
 	}
 
-	public load(): Promise<any>
+	public load(): Promise<google>
 	{
 		if (typeof this.api !== 'undefined') {
 			return Promise.resolve(this.api);

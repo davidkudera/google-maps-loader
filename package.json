@@ -21,6 +21,9 @@
 	"license": "MIT",
 	"main": "./lib/index.js",
 	"types": "./lib/index.d.ts",
+	"dependencies": {
+		"@types/googlemaps": "^3.39.1"
+	},
 	"devDependencies": {
 		"@types/node": "^13.1.6",
 		"typescript": "^3.7.4"
