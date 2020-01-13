@@ -54,6 +54,9 @@ loader.load().then(function (google) {
 
 ## Changelog list
 
+* 4.2.0
+    + Add official types from @types/googlemaps
+
 * 4.1.1
     + Rebuild package
 
