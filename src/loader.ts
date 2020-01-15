@@ -69,7 +69,7 @@ export class Loader
 			script.async = true;
 			script.onerror = (e) => reject(e);
 
-			document.head.append(script);
+			document.head.appendChild(script);
 		});
 	}
 
