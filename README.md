@@ -54,6 +54,9 @@ loader.load().then(function (google) {
 
 ## Changelog list
 
+* 4.2.3
+    + Add support for IE11 [#78](https://github.com/davidkudera/google-maps-loader/pull/78)
+
 * 4.2.2
     + Allow authorization using `clientID` [#77](https://github.com/davidkudera/google-maps-loader/pull/77) 
 
