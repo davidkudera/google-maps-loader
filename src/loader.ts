@@ -24,7 +24,7 @@ export class Loader
 	private api: google|undefined;
 
 	constructor(
-		private apiKey: string,
+		private apiKey: string = null,
 		private options: LoaderOptions = {},
 	) {
 		if (typeof window === 'undefined') {
@@ -76,9 +76,12 @@ export class Loader
 	private createUrl(): string
 	{
 		const parameters: Array<string> = [
-			`key=${this.apiKey}`,
 			`callback=${Loader.CALLBACK_NAME}`,
 		];
+
+		if(this.apiKey) {
+			parameters.push(`key=${this.apiKey}`);
+		}
 
 		for (let name in this.options) {
 			if (this.options.hasOwnProperty(name)) {
