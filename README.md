@@ -54,7 +54,7 @@ loader.load().then(function (google) {
 
 ## Changelog list
 
-* 4.2.1
+* 4.2.2
     + Allow authorization using `clientID` [#77](https://github.com/davidkudera/google-maps-loader/pull/77) 
 
 * 4.2.0
