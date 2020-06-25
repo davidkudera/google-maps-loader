@@ -13,7 +13,15 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: npm test
+      - run: sed -i "s/0.0.0-version-placeholder/${{github.event.release.tag_name}}/" package.json
+      - uses: actions/upload-artifact@v1
+        with:
+          name: package
+          path: package.json
+      - uses: actions/upload-artifact@v1
+        with:
+          name: build
+          path: lib
 
   publish-npm:
     needs: build
@@ -24,7 +32,12 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
+      - uses: actions/download-artifact@v1
+        with:
+          - name: package
+      - uses: actions/download-artifact@v1
+        with:
+          - name: build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
@@ -38,7 +51,12 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci
+      - uses: actions/download-artifact@v1
+        with:
+          - name: package
+      - uses: actions/download-artifact@v1
+        with:
+          - name: build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
