@@ -22,6 +22,7 @@
 	"main": "./lib/cjs/index.js",
 	"types": "./lib/types/index.d.ts",
 	"module": "./lib/esm/index.js",
+	"sideEffects": false,
 	"dependencies": {
 		"@types/googlemaps": "^3.39.1"
 	},
