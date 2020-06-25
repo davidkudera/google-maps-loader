@@ -12,8 +12,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm ci
       - run: sed -i "s/0.0.0-version-placeholder/${{github.event.release.tag_name}}/" package.json
+      - run: npm ci
+      - run: npm run build
       - uses: actions/upload-artifact@v1
         with:
           name: package
@@ -34,10 +35,10 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - uses: actions/download-artifact@v1
         with:
-          - name: package
+          name: package
       - uses: actions/download-artifact@v1
         with:
-          - name: build
+          name: build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
@@ -53,10 +54,10 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - uses: actions/download-artifact@v1
         with:
-          - name: package
+          name: package
       - uses: actions/download-artifact@v1
         with:
-          - name: build
+          name: build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
