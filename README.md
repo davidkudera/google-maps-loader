@@ -16,6 +16,15 @@ asynchronously.
 $ npm install --save google-maps
 ```
 
+or with [Pika](https://www.pika.dev/npm/google-maps):
+
+```html
+<script type="module">
+    import { Loader } from 'https://cdn.pika.dev/google-maps';
+    // todo: see docs bellow
+</script>
+```
+
 ## Usage
 
 ```typescript
