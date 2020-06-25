@@ -1,11 +1,11 @@
 {
 	"compilerOptions": {
-		"target": "es5",
-		"module": "commonjs",
-		"moduleResolution": "node",
+		"target": "ES2017",
+		"module": "ES2020",
 		"sourceMap": true,
 		"declaration": true,
-		"outDir": "./lib"
+		"outDir": "./lib/esm",
+		"declarationDir": "./lib/types"
 	},
 	"include": [
 		"./src"

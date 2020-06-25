@@ -19,17 +19,17 @@
 		"url": "git@github.com:davidkudera/google-maps-loader.git"
 	},
 	"license": "MIT",
-	"main": "./lib/index.js",
-	"types": "./lib/index.d.ts",
+	"main": "./lib/cjs/index.js",
+	"types": "./lib/types/index.d.ts",
+	"module": "./lib/esm/index.js",
 	"dependencies": {
 		"@types/googlemaps": "^3.39.1"
 	},
 	"devDependencies": {
-		"@types/node": "^13.1.6",
-		"typescript": "^3.7.4"
+		"@types/node": "^14.0.14",
+		"typescript": "^3.9.5"
 	},
 	"scripts": {
-		"build": "tsc",
-		"watch": "tsc --watch"
+		"build": "tsc -p tsconfig.json && tsc -p tsconfig.cjs.json"
 	}
 }
