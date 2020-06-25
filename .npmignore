@@ -2,3 +2,4 @@
 /src
 /.github
 tsconfig.json
+tsconfig.cjs.json
