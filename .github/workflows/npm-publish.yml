@@ -5,27 +5,7 @@ on:
     tags: ['*']
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: sed -i "s/0.0.0-version-placeholder/${{github.event.release.tag_name}}/" package.json
-      - run: npm ci
-      - run: npm run build
-      - uses: actions/upload-artifact@v1
-        with:
-          name: package
-          path: package.json
-      - uses: actions/upload-artifact@v1
-        with:
-          name: build
-          path: lib
-
-  publish-npm:
-    needs: build
+  npm:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -33,12 +13,10 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - uses: actions/download-artifact@v1
-        with:
-          name: package
-      - uses: actions/download-artifact@v1
-        with:
-          name: build
-      - run: npm publish
+      - run: echo ::set-env name=GIT_TAG::${GITHUB_REF#refs/*/}
+      - run: sed -i "s/0.0.0-version-placeholder/${{env.GIT_TAG}}/" package.json
+      - run: npm ci
+      - run: npm run build
+      - run: npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
