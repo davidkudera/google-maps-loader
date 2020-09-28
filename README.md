@@ -1,6 +1,10 @@
 # google-maps-loader
 
-Async loader for google maps api.
+Async loader for google maps api written in typescript with promises.
+
+This is an unofficial package first released when there was no official modern loader for google maps. This 
+changed with [@googlemaps/js-api-loader](https://www.npmjs.com/package/@googlemaps/js-api-loader) which is based
+on an older version of this package.
 
 **Version >= 4.0.0:** Typescript definitions are published with this package. Install `@types/google-maps` for previous 
 versions.
