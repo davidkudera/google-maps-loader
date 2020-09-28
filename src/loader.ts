@@ -99,6 +99,6 @@ export class Loader
 			}
 		}
 
-		return `//maps.googleapis.com/maps/api/js?${parameters.join('&')}`;
+		return `https://maps.googleapis.com/maps/api/js?${parameters.join('&')}`;
 	}
 }
