@@ -24,7 +24,7 @@
 	"module": "./lib/esm/index.js",
 	"sideEffects": false,
 	"dependencies": {
-		"@types/googlemaps": "^3.39.1"
+		"@types/google.maps": "^3.45.2"
 	},
 	"devDependencies": {
 		"@types/node": "^14.0.14",

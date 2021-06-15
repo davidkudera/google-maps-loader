@@ -1,4 +1,4 @@
-/// <reference types="googlemaps" />
+/// <reference types="google.maps" />
 
 
 export declare interface google
